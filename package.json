@@ -1,0 +1,62 @@
+{
+  "name": "r3f-optimizer-mcp",
+  "version": "0.1.0",
+  "description": "MCP server that analyzes and optimizes three.js / React Three Fiber projects for low-, mid- and high-end devices",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/chmod.mjs",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "three.js",
+    "react-three-fiber",
+    "r3f",
+    "webgl",
+    "optimization",
+    "performance",
+    "gltf"
+  ],
+  "author": "SpOOn",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@babel/parser": "^8.0.7",
+    "@gltf-transform/core": "^4.5.1",
+    "@gltf-transform/extensions": "^4.5.1",
+    "@gltf-transform/functions": "^4.5.1",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "diff": "^9.0.0",
+    "draco3dgltf": "^1.5.7",
+    "fast-glob": "^3.3.3",
+    "magic-string": "^1.4.3",
+    "meshoptimizer": "^1.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "bin": {
+    "r3f-optimizer-mcp": "dist/index.js",
+    "r3f-optimizer": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
