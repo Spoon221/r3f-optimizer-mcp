@@ -16,6 +16,8 @@ async function getIO(): Promise<NodeIO> {
     const draco3d = require('draco3dgltf');
     await MeshoptDecoder.ready;
     await MeshoptEncoder.ready;
+    // simplify() из gltf-transform сам не ждёт WASM упрощателя: без этого падает Assertion failed.
+    await MeshoptSimplifier.ready;
     return new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({
       'draco3d.decoder': await draco3d.createDecoderModule(),
       'draco3d.encoder': await draco3d.createEncoderModule(),
